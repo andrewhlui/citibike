@@ -1,13 +1,13 @@
+{% for type in ['start', 'end'] %}
+
 select distinct
-    start_station_name as station_name,
-    start_station_id as station_id
+    {{ type }}_station_name as station_name,
+    {{ type }}_station_id as station_id
+    {{ type }}_lat as latitude,
+    {{ type }}_lng as longitude
 from
     {{ ref('citbike') }}
 
-union
+{% if not loop.last -%} union {%- endif %}
 
-select distinct
-    end_station_name as station_name,
-    end_station_id as station_id
-from 
-    {{ ref('citibike') }}
+{% endfor %}
