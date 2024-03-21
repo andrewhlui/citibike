@@ -7,3 +7,6 @@ Some of the things I want to try and do:
     - Which paths (start/end stations) are the most popular?
     - Are there any interesting commuting patterns (e.g. people taking the train to work in the morning but biking home later)
 
+Long-term goals:
+- Create some kind of Tableau reporting here
+- Implement other things (sqlfluff, github actions, other cool stuff)
