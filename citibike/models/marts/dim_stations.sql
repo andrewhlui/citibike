@@ -25,4 +25,3 @@ where
 {% if not loop.last -%} union {%- endif %}
 
 {% endfor %}
-
