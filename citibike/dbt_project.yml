@@ -19,6 +19,17 @@ clean-targets:
 
 models:
   citibike:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    +tags: 
+      - citibike
+  
+    staging:
+      +materialized: ephemeral
+    intermediate:
+      +materialized: table
+      +tags:
+        - intermediate
+    marts:
+      +materialized: table
+    semantic:
+      +materialized: table
+
