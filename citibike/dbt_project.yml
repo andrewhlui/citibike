@@ -1,0 +1,24 @@
+
+name: 'citibike'
+version: '1.0.0'
+config-version: 2
+
+profile: 'citibike'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+docs-paths: ["docs"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+
+models:
+  citibike:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view
