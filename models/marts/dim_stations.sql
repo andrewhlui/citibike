@@ -2,7 +2,7 @@ select distinct
     start_station_name as station_name,
     start_station_id as station_id
 from
-    {{ ref('citbike') }}
+    {{ ref('citibike') }}
 
 union
 

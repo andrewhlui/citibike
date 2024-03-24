@@ -1,4 +1,4 @@
-{% macro create_storage_integration(integration_name storage_aws_role_arn, storage_allowed_locations) %}
+{% macro create_storage_integration(integration_name, storage_aws_role_arn, storage_allowed_locations) %}
 
 {% set storage_integration_sql %}
 create or replace storage integration {{ integration_name }}_integration
@@ -9,7 +9,7 @@ create or replace storage integration {{ integration_name }}_integration
   storage_allowed_locations = (
     '{{ storage_allowed_locations }}'
   )
-{% endmacro %}
+{% endset %}
 
 {% set file_list = run_query(storage_integration_sql) %}
 
