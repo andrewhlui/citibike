@@ -15,7 +15,7 @@ select distinct
     '{{ type }}' as source, 
     load_dts
 from
-    {{ ref('citibike') }}
+    {{ ref('stg_citibike') }}
 
 {% if is_incremental() %}
 where

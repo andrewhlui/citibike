@@ -12,10 +12,14 @@ select
     ended_at_ts,
     start_station_id,
     end_station_id,
-    is_member, 
+    case 
+        when member_casual = 'member' then true
+        when member_casual = 'casual' then false 
+        else null
+    end as is_member, 
     load_dts
 from
-    {{ ref('int_citibike') }}
+    {{ ref('stg_citibike') }}
 
 {% if is_incremental() %}
 where

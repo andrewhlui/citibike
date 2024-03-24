@@ -16,7 +16,6 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-
 models:
   citibike:
     +tags: 
@@ -24,10 +23,6 @@ models:
   
     staging:
       +materialized: ephemeral
-    intermediate:
-      +materialized: table
-      +tags:
-        - intermediate
     marts:
       +materialized: table
     semantic:
