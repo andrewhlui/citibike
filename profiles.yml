@@ -5,10 +5,10 @@ citibike:
     dev:
       account: "{{ env_var('snowflake_account') }}"
       database: citibike
-      role: dev_role
+      role: citibike_dev_role
       schema: dev
       threads: 4
       type: snowflake
       user: "{{ env_var('snowflake_user') }}"
       password: "{{ env_var('snowflake_password') }}"
-      warehouse: dev_warehouse
+      warehouse: citibike_dev_xs_wh
