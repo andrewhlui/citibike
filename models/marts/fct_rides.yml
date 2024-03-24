@@ -1,0 +1,27 @@
+version: 2 
+
+models:
+  - name: fct_rides
+    description: >
+        Citibike rides. Each ride is a unique row. 
+    tests:
+        # rides must end after they start
+        - dbt_utils.expression_is_true:
+            expression: "started_at_ts > ended_at_ts"
+            # throw an error if there are a lot; it's OK if there are a few anomalies
+            error_if: ">1000"
+    columns:
+        - name: ride_id
+          description: "{{ doc('ride_id') }}"
+          tests:
+            - unique
+        - name: is_member
+          description: "{{ doc('is_member') }}"
+          tests:
+            - not_null
+        - name: rideable_type
+          description: "{{ doc('rideable_type') }}"
+          tests:
+            - accepted_values:
+                values: ['electric_bike', 'classic_bike']
+
