@@ -11,7 +11,10 @@ select
     nullif($10, '')::varchar as start_lng,
     nullif($11, '')::varchar as end_lat,
     nullif($12, '')::varchar as end_lng,
-    nullif($13, '')::varchar as member_casual
+    nullif($13, '')::varchar as member_casual,
+    --does not currently handle restatements of existing files
+    split_part($14, '/', -1) as file_name
+
 from
     {{ all_files(stage = 'citibike_stage') }}
 
