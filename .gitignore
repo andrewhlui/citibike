@@ -1,6 +1,4 @@
-
-dbt_packages/
-logs/
 target/
+logs/
 .env
-.vscode/
+.user.yml
