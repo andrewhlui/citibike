@@ -14,13 +14,13 @@ select
     nullif($6, '')::varchar as start_station_id,
     nullif($7, '')::varchar as end_station_name,
     nullif($8, '')::varchar as end_station_id,
-    nullif($9, '')::numeric as start_lat,
-    nullif($10, '')::numeric as start_lng,
-    nullif($11, '')::numeric as end_lat,
-    nullif($12, '')::numeric as end_lng,
+    nullif($9, '')::numeric(10, 4) as start_lat,
+    nullif($10, '')::numeric(10, 4) as start_lng,
+    nullif($11, '')::numeric(10, 4) as end_lat,
+    nullif($12, '')::numeric(10, 4) as end_lng,
     nullif($13, '')::varchar as member_casual,
     --does not currently handle restatements of existing files
-    split_part($14, '/', -1) as file_name,
+    split_part(metadata$filename, '/', -1) as file_name,
     current_timestamp() as load_dts
 
 from

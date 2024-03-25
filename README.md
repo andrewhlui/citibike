@@ -1,6 +1,9 @@
 # citibike
 I like Citibike so I wanted to take a look at Citibike data. This is for a personal project. 
 
+Tableau visualization: 
+https://public.tableau.com/views/Citibike_17113249064880/CitibikeDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link
+
 Some of the things I want to try and do:
 - Find interesting patterns in citibike usage, such as:
     - Do people really use more electic bikes for bridge trips?

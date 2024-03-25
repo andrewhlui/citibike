@@ -5,6 +5,7 @@
     )
 }}
 
+with cte_stations as (
 {% for type in ['start', 'end'] %}
 
 select distinct
@@ -24,3 +25,16 @@ where
 {% if not loop.last -%} union {%- endif %}
 
 {% endfor %}
+
+)
+
+select
+    station_name,
+    station_id,
+    latitude,
+    longitude
+from
+    cte_stations
+--lat/long is not unique
+qualify
+    row_number() over (partition by station_id order by latitude, longitude) = 1
