@@ -6,11 +6,12 @@ models:
         Citibike stations. 
     columns:
         - name: station_id
-          description: {{ doc('station_id') }}
+          description: "{{ doc('station_id') }}"
           tests:
             - unique
         - name: station_name
-          description: {{ doc('station_name') }}
+          description: "{{ doc('station_name') }}"
           tests:
             - unique:
-              severity: warn
+                # not required but would be weird to have the same name
+                severity: warn
